@@ -1,21 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/28 23:20:06 by myoshika          #+#    #+#             */
-/*   Updated: 2022/07/17 18:17:57 by myoshika         ###   ########.fr       */
+/*   Created: 2022/09/11 22:16:21 by myoshika          #+#    #+#             */
+/*   Updated: 2022/09/12 00:03:32 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-static int	is_whitespace(char c)
-{
-	return (c == 32 || (9 <= c && c <= 13));
-}
+#include "minitalk_bonus.h"
 
 static long	make_l(const char *str, size_t i, int sign, long num)
 {
@@ -36,22 +31,13 @@ static long	make_l(const char *str, size_t i, int sign, long num)
 	return (num);
 }
 
-int	ft_atoi(const char *str)
+int	main(int argc, char **argv)
 {
-	size_t	i;
-	int		sign;
-	long	num;
+	pid_t	pid;
+	char	*message;
 
-	sign = 1;
-	i = 0;
-	while (is_whitespace(*(str + i)))
-		i++;
-	if ((*(str + i) == '+' || *(str + i) == '-') && *(str + i))
-	{
-		if (*(str + i) == '-')
-			sign = -1;
-		i++;
-	}
-	num = make_l(str, i, sign, 0);
-	return ((int)num);
+	if (argc != 3)
+		return ;
+	pid = basic_atoi(argv[1]);
+	message = argv[2];
 }
