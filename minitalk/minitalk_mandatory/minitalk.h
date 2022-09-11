@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/11 22:14:08 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/11 23:04:10 by myoshika         ###   ########.fr       */
+/*   Created: 2022/09/11 22:15:33 by myoshika          #+#    #+#             */
+/*   Updated: 2022/09/12 00:03:12 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#ifndef MINITALK_H
+# define MINITALK_H
 
-int	main(int argc, char **argv)
-{
-	pid_t	pid;
-	char	*message;
-	
-	if (argc != 3)
-		return ;
-	
-}
+# include <unistd.h>
+# include <sys/types.h>
+# include "../lib/libft/libft.h"
+
+#endif

@@ -2,15 +2,19 @@ NAME = minitalk
 SERVER = server
 CLIENT = client
 
-LIBFTDIR = ./libft
+LIBFTDIR = ../lib/libft/
+PRINTFDIR = ../lib/printf/
 
-CLIENT_SRC = 
-SERVER_SRC = 
-CLIENT_OBJS =
-SERVER_OBS = 
+CLIENT_SRC = client.c
+SERVER_SRC = server.c
+CLIENT_OBJ = client.o
+SERVER_OBS = server.o
+
+LIBFT = ../lib/libft/libft.a -I ../lib/libft
+FT_PRINTF = ../lib/printf/libftprintf.a -I ../lib/printf
+MINITALK = -I ./
 
 CFLAGS = -Wall -Wextra -Werror
-INCLUDES = -I libft.h
 
 /* -------------------------------------------------------------------------- */
 
@@ -18,15 +22,16 @@ all: $(SERVER) $(CLIENT)
 
 $(NAME): $(OBJS)
 	make -C $(LIBFTDIR)
+	make -C $(PRINTFDIR)
 
 bonus: all
 
 clean:
 	make clean -C $(LIBFTDIR)
+	make clean -C $(PRINTFDIR)
 	$(RM) $(OBJS)
 
 fclean: clean
-	make fclean -C $(LIBFTDIR)
 	$(RM) $(NAME)
 
 re: fclean all
