@@ -6,34 +6,55 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 22:16:21 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/11 23:23:32 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/16 23:10:45 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-static long	make_l(const char *str, size_t i, int sign, long num)
+static bool	str_is_num(char *str)
 {
-	long	min;
+	size_t	i;
+	size_t	str_len;
 
-	min = LONG_MIN;
-	while (*(str + i) && (*(str + i) >= '0' && *(str + i) <= '9'))
-	{
-		if (sign == 1 && ((num > LONG_MAX / 10)
-				|| (num == LONG_MAX / 10 && *(str + i) - '0' > LONG_MAX % 10)))
-			return (LONG_MAX);
-		else if (sign == -1 && ((num < min / 10)
-				|| (num == min / 10 && *(str + i) - '0' > min % 10 * -1)))
-			return (LONG_MIN);
-		num = (num * 10) + sign * (*(str + i) - '0');
-		i++;
-	}
-	return (num);
+	i = 0;
+	str_len = ft_strlen(str);
+	while (i < str_len || str_len == 0)
+		if (!ft_isdigit(str[i]) || str_len == 0)
+			return (false);
+	return (true);
 }
 
-static int basic_atoi()
+static pid_t	check_pid(int argc, char **argv)
 {
-	
+	pid_t	pid;
+
+	if (argc != 3 || !str_is_num(argv[1]))
+		exit(1);
+	pid = ft_atoi(argv[1]);
+	if (pid < 100 || pid > 99998)
+		exit (1);
+	return (pid);
+}
+
+static void	send_byte(pid_t pid, int character)
+{
+	int	shift;
+	int	bit_to_send;
+	int	kill_status;
+
+	shift = 7;
+	while (shift-- >= 0)
+	{
+		bit_to_send = (character >> shift) & 1;
+		if (bit_to_send == 1)
+			kill_status = kill(pid, SIGUSR2);
+		else
+			kill_status = kill(pid, SIGUSR1);
+		if (kill_status == -1)
+			exit(1);
+		usleep(600);
+	}
 }
 
 int	main(int argc, char **argv)
@@ -41,8 +62,9 @@ int	main(int argc, char **argv)
 	pid_t	pid;
 	char	*message;
 
-	if (argc != 3)
-		return ;
-	pid = basic_atoi(argv[1]);
+	pid = check_pid(argc, argv);
 	message = argv[2];
+	while (*message)
+		send_byte(pid, *message++);
+	send_byte(pid, 4);
 }
