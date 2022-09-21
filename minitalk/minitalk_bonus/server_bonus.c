@@ -6,13 +6,13 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 22:14:08 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/21 22:10:50 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/21 23:41:11 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk_bonus.h"
 
-static void	handler(int signal, siginfo_t s_info, void *context)
+static void	handler(int signal, siginfo_t *s_info, void *context)
 {
 	static int	c;
 	static int	bit;
@@ -47,5 +47,5 @@ int	main(void)
 	if (sigaction(SIGUSR2, &handler, NULL) != 0)
 		exit (1);
 	while (1)
-		pause ;
+		pause();
 }
