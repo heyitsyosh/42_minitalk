@@ -5,10 +5,10 @@ CLIENT = client
 LIBFTDIR = ../lib/libft/
 PRINTFDIR = ../lib/printf/
 
-CLIENT_SRC = client.c
-SERVER_SRC = server.c
-OBJS = client.o\
-	server.o
+CLIENT_SRC = client_bonus.c
+SERVER_SRC = server_bonus.c
+OBJS = client_bonus.o\
+	server_bonus.o
 
 LIBFT = ../lib/libft/libft.a -I ../lib/libft
 FT_PRINTF = ../lib/printf/libftprintf.a -I ../lib/printf

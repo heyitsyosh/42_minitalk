@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 22:16:21 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/18 03:51:21 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/21 23:41:27 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,5 @@ int	main(int argc, char **argv)
 	if (signal(SIGUSR2, &acknowledge) == SIG_ERR)
 		exit (1);
 	while (1)
-		pause ;
+		pause();
 }
