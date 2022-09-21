@@ -10,6 +10,7 @@ SERVER_SRC = server.c
 OBJS = client.o\
 		server.o
 
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 LIBFT = ../lib/libft/libft.a -I ../lib/libft
@@ -18,12 +19,18 @@ MINITALK = -I ./
 
 #--------------------------------------------------------------------------#
 
+ifeq ($(MAKECMDGOALS),linux)
+CFLAGS += $(LINUX)
+endif
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	make -C $(PRINTFDIR)
 	$(CC) $(CFLAGS) -o $(SERVER)
 	$(CC) $(CFLAGS) -o $(CLIENT)
+
+linux: all
 
 clean:
 	make clean -C $(PRINTFDIR)
