@@ -6,20 +6,19 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 22:14:08 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/21 22:10:55 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/21 23:41:18 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-static void	handler(int signal, siginfo_t s_info, void *context)
+static void	handler(int signal, siginfo_t *s_info, void *context)
 {
 	static int	c;
 	static int	bit;
-	pid_t		client_pid;
 
 	(void)context;
-	client_pid = s_info->si_pid;
+	(void)s_info;
 	if (signal == SIGUSR1)
 		c = c << 1;
 	else
@@ -44,5 +43,5 @@ int	main(void)
 	if (sigaction(SIGUSR2, &handler, NULL) != 0)
 		exit (1);
 	while (1)
-		pause ;
+		pause();
 }
