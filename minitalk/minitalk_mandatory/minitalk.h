@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 22:15:33 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/21 18:39:37 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/21 23:42:31 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,5 @@
 # include <stdarg.h>
 # include "../lib/libft/libft.h"
 # include "../lib/printf/ft_printf.h"
-
-# define _XOPEN_SOURCE 700
 
 #endif
