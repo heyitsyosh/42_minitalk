@@ -7,8 +7,8 @@ PRINTFDIR = ../lib/printf/
 
 CLIENT_SRC = client.c
 SERVER_SRC = server.c
-CLIENT_OBJ = client.o
-SERVER_OBS = server.o
+OBJS = client.o\
+	server.o
 
 LIBFT = ../lib/libft/libft.a -I ../lib/libft
 FT_PRINTF = ../lib/printf/libftprintf.a -I ../lib/printf
