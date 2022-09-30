@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   minitalk_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 22:15:33 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/21 23:42:31 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/22 22:54:39 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#ifndef MINITALK_BONUS_H
+# define MINITALK_BONUS_H
 
 # include <signal.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <sys/types.h>
-# include <stdarg.h>
-# include "../lib/libft/libft.h"
-# include "../lib/printf/ft_printf.h"
+# include "./libft.h"
+# include "./ft_printf.h"
 
 #endif
