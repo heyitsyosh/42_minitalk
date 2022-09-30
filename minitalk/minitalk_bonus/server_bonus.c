@@ -6,13 +6,13 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 22:14:08 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/21 23:41:11 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/22 22:56:07 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk_bonus.h"
+#include "../includes/minitalk_bonus.h"
 
-static void	handler(int signal, siginfo_t *s_info, void *context)
+static void	handler(int signal, struct __siginfo *s_info, void *context)
 {
 	static int	c;
 	static int	bit;
@@ -40,7 +40,7 @@ int	main(void)
 	struct sigaction	sa;
 
 	sa.sa_flags = SA_SIGINFO;
-	sa.sa_sigaction = handler;
+	sa = handler();
 	ft_printf("pid: %d\n", getpid());
 	if (sigaction(SIGUSR1, &handler, NULL) != 0)
 		exit (1);
