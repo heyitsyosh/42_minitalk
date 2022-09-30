@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 22:14:08 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/22 22:56:27 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/01 07:38:27 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ int	main(void)
 	sa.sa_flags = SA_SIGINFO;
 	sa.sa_sigaction = handler;
 	ft_printf("pid: %d\n", getpid());
-	if (sigaction(SIGUSR1, &handler, NULL) != 0)
+	if (sigaction(SIGUSR1, &sa, NULL) != 0)
 		exit (1);
-	if (sigaction(SIGUSR2, &handler, NULL) != 0)
+	if (sigaction(SIGUSR2, &sa, NULL) != 0)
 		exit (1);
 	while (1)
 		pause();
