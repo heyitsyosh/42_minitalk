@@ -6,9 +6,9 @@ CLIENT = client
 SERVER_SRC = ./minitalk_mandatory/server.c
 CLIENT_SRC = ./minitalk_mandatory/client.c
 
-OBJS = server.o client.o
+SERVER_OBJ = ./minitalk_mandatory/server.o
+CLIENT_OBJ = ./minitalk_mandatory/client.o
 
-LIBFTDIR = ./lib/libft/
 PRINTFDIR = ./lib/printf/
 
 CFLAGS = -Wall -Wextra -Werror -I ./includes
@@ -16,31 +16,30 @@ CFLAGS = -Wall -Wextra -Werror -I ./includes
 ifeq ($(MAKECMDGOALS),bonus)
 SERVER_SRC = ./minitalk_bonus/server_bonus.c
 CLIENT_SRC = ./minitalk_bonus/client_bonus.c
-OBJS = client_bonus.o server_bonus.o
+SERVER_OBJ = ./minitalk_bonus/server_bonus.o
+CLIENT_OBJ = ./minitalk_bonus/client_bonus.o
 endif
 
 #--------------------------------------------------------------------------#
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(SERVER_OBJ) $(CLIENT_OBJ)
 	make -C $(PRINTFDIR)
-	$(CC) $(CFLAGS) -o $(SERVER) -Lft_printf -lftprintf minitalk_server.o
-	$(CC) $(CFLAGS) -o $(CLIENT) -Lft_printf -lftprintf minitalk_client.o
+	$(CC) $(CFLAGS) $(SERVER_OBJ) -o $(SERVER) -L$(PRINTFDIR) -llibftprintf
+	$(CC) $(CFLAGS) $(CLIENT_OBJ) -o $(CLIENT) -L$(PRINTFDIR) -llibftprintf
 
 %.o: %.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
-bonus:
-	$(MAKE) WITH_BONUS=1
+bonus: all
 
 clean:
-	$(MAKE) clean -C $(LIBFTDIR)
 	$(MAKE) clean -C $(PRINTFDIR)
-	$(RM) $(OBJS)
+	$(RM) $(SERVER_OBJ) $(CLIENT_OBJ)
 
 fclean: clean
-	$(MAKE) fclean -C ./ft_printf
+	$(MAKE) fclean -C $(PRINTFDIR)
 	$(RM) $(SERVER) $(CLIENT)
 
 re: fclean all
