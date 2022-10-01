@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 22:16:21 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/01 14:31:30 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/01 14:37:29 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	main(int argc, char **argv)
 	while (*message)
 		send_byte(pid, *message++);
 	send_byte(pid, 4);
-	if (signal(SIGUSR2, &acknowledge) == SIG_ERR)
+	if (signal(SIGUSR2, acknowledge) == SIG_ERR)
 		exit (1);
 	while (1)
 		pause();
