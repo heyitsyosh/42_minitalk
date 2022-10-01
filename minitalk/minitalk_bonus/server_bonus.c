@@ -6,13 +6,13 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 22:14:08 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/01 15:22:29 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/01 16:10:56 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minitalk_bonus.h"
 
-static void	handler(int signal, struct __siginfo *s_info, void *context)
+static void	handler(int signal, siginfo_t *s_info, void *context)
 {
 	static int	c;
 	static int	bit;
