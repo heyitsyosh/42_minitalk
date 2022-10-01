@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 22:16:21 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/01 14:50:57 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/01 14:51:47 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	acknowledge(int signal)
 {
-	(void *)signal;
+	(void)signal;
 	ft_printf("Message successfully sent and received.");
 }
 
