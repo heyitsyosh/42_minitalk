@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 22:14:08 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/01 15:22:15 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/01 15:22:29 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	handler(int signal, struct __siginfo *s_info, void *context)
 	if (++bit == 8)
 	{
 		if (c == 4)
-			if (kill(s_info->si_pid, SIGUSR2) == -1)
+			if (kill(s_info->si_pid, SIGUSR1) == -1)
 				exit (1);
 		ft_putchar_fd(c, 1);
 		bit = 0;

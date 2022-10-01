@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 22:16:21 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/01 15:12:31 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/01 15:23:28 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	acknowledge(int signal)
 {
-	if (signal == SIGUSR2)
+	if (signal == SIGUSR1)
 		ft_printf("Message successfully sent and received.");
 }
 
@@ -76,7 +76,7 @@ int	main(int argc, char **argv)
 	while (*message)
 		send_byte(pid, *message++);
 	send_byte(pid, 4);
-	if (signal(SIGUSR2, &acknowledge) == SIG_ERR)
+	if (signal(SIGUSR1, &acknowledge) == SIG_ERR)
 		exit (1);
 	while (1)
 		pause();
