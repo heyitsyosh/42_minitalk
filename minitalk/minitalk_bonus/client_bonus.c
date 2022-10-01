@@ -6,15 +6,16 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 22:16:21 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/01 14:37:29 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/01 14:49:13 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minitalk_bonus.h"
 
-static void	acknowledge(void)
+static void	acknowledge(int signal)
 {
-	ft_printf("Message successfully sent and received.");
+	if (signal == SIGUSR2)
+		ft_printf("Message successfully sent and received.");
 }
 
 static bool	str_is_num(char *str)
@@ -75,7 +76,7 @@ int	main(int argc, char **argv)
 	while (*message)
 		send_byte(pid, *message++);
 	send_byte(pid, 4);
-	if (signal(SIGUSR2, acknowledge) == SIG_ERR)
+	if (signal(SIGUSR2, &acknowledge) == SIG_ERR)
 		exit (1);
 	while (1)
 		pause();
