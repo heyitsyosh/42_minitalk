@@ -26,8 +26,8 @@ all: $(NAME)
 
 $(NAME): $(SERVER_OBJ) $(CLIENT_OBJ)
 	make -C $(PRINTFDIR)
-	$(CC) $(CFLAGS) $(SERVER_OBJ) -o $(SERVER) -L$(PRINTFDIR) -llibftprintf
-	$(CC) $(CFLAGS) $(CLIENT_OBJ) -o $(CLIENT) -L$(PRINTFDIR) -llibftprintf
+	$(CC) $(CFLAGS) $(SERVER_OBJ) -o $(SERVER) -L$(PRINTFDIR) -lftprintf
+	$(CC) $(CFLAGS) $(CLIENT_OBJ) -o $(CLIENT) -L$(PRINTFDIR) -lftprintf
 
 %.o: %.c
 	$(CC) $(CFLAGS) -o $@ -c $<

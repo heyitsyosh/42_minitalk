@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 22:14:08 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/01 07:38:27 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/01 13:52:08 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	handler(int signal, siginfo_t *s_info, void *context)
 		c = (c << 1) + 1;
 	if (++bit == 8)
 	{
-		ft_putchar_fd(c, 1);
+		write(1, &c, 1);
 		bit = 0;
 		c = 0;
 	}
