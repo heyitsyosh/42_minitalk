@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 22:16:21 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/01 14:27:33 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/01 14:31:30 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	main(int argc, char **argv)
 	pid_t	pid;
 	char	*message;
 
-	pid = check_pid(&pid, argc, argv);
+	check_pid(&pid, argc, argv);
 	message = argv[2];
 	while (*message)
 		send_byte(pid, *message++);
