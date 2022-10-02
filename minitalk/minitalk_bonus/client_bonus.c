@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 22:16:21 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/02 22:28:09 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/02 22:31:32 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static void	acknowledge(int signal)
 {
 	if (signal == SIGUSR1)
 		ft_printf("Message successfully sent and received.");
+	exit(0);
 }
 
 static bool	str_is_num(char *str)
