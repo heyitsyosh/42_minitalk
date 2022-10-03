@@ -35,11 +35,11 @@ $(NAME): $(SERVER_OBJ) $(CLIENT_OBJ)
 bonus: all
 
 clean:
-	$(MAKE) clean -C $(PRINTFDIR)
+	make clean -C $(PRINTFDIR)
 	$(RM) $(SERVER_OBJ) $(CLIENT_OBJ)
 
 fclean: clean
-	$(MAKE) fclean -C $(PRINTFDIR)
+	make fclean -C $(PRINTFDIR)
 	$(RM) $(SERVER) $(CLIENT)
 
 re: fclean all
