@@ -20,8 +20,8 @@ OBJS = $(SERVER_OBJ) $(CLIENT_OBJ) $(B_CLIENT_OBJ) $(B_SERVER_OBJ)
 ifeq ($(MAKECMDGOALS),bonus)
 SERVER_SRC = $(BONUS_DIR)server_bonus.c
 CLIENT_SRC = $(BONUS_DIR)client_bonus.c
-SERVER_OBJ = $(BONUS_DIR)server_bonus.o
-CLIENT_OBJ = $(BONUS_DIR)client_bonus.o
+SERVER_OBJ = $(SERVER_SRC:.c=.o)
+CLIENT_OBJ = $(CLIENT_SRC:.c=.o)
 endif
 
 CFLAGS = -Wall -Wextra -Werror -I ./includes
