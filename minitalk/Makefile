@@ -8,10 +8,10 @@ BONUS_DIR = ./minitalk_bonus/
 PRINTFDIR = ./lib/printf/
 
 SERVER_SRC = $(DIR)server.c
-CLIENT_SRC = $(DIR)client.c
+CLIENT_SRC = $(DIR)client.C
 
-SERVER_OBJ = $(DIR)server.o
-CLIENT_OBJ = $(DIR)client.o
+SERVER_OBJ = $(SERVER_SRC:.c=.o)
+CLIENT_OBJ = $(CLIENT_SRC:.c=.o)
 B_SERVER_OBJ = $(BONUS_DIR)server_bonus.o
 B_CLIENT_OBJ = $(BONUS_DIR)client_bonus.o
 
