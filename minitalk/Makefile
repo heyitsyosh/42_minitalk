@@ -3,22 +3,28 @@ NAME = minitalk
 SERVER = server
 CLIENT = client
 
-SERVER_SRC = ./minitalk_mandatory/server.c
-CLIENT_SRC = ./minitalk_mandatory/client.c
-
-SERVER_OBJ = ./minitalk_mandatory/server.o
-CLIENT_OBJ = ./minitalk_mandatory/client.o
-
+DIR = ./minitalk_mandatory/
+BONUS_DIR = ./minitalk_bonus/
 PRINTFDIR = ./lib/printf/
 
-CFLAGS = -Wall -Wextra -Werror -I ./includes
+SERVER_SRC = $(DIR)server.c
+CLIENT_SRC = $(DIR)client.c
+
+SERVER_OBJ = $(DIR)server.o
+CLIENT_OBJ = $(DIR)client.o
+B_SERVER_OBJ = $(BONUS_DIR)server_bonus.o
+B_CLIENT_OBJ = $(BONUS_DIR)client_bonus.o
+
+OBJS = $(SERVER_OBJ) $(CLIENT_OBJ) $(B_CLIENT_OBJ) $(B_SERVER_OBJ)
 
 ifeq ($(MAKECMDGOALS),bonus)
-SERVER_SRC = ./minitalk_bonus/server_bonus.c
-CLIENT_SRC = ./minitalk_bonus/client_bonus.c
-SERVER_OBJ = ./minitalk_bonus/server_bonus.o
-CLIENT_OBJ = ./minitalk_bonus/client_bonus.o
+SERVER_SRC = $(BONUS_DIR)server_bonus.c
+CLIENT_SRC = $(BONUS_DIR)client_bonus.c
+SERVER_OBJ = $(BONUS_DIR)server_bonus.o
+CLIENT_OBJ = $(BONUS_DIR)client_bonus.o
 endif
+
+CFLAGS = -Wall -Wextra -Werror -I ./includes
 
 #--------------------------------------------------------------------------#
 
@@ -36,7 +42,7 @@ bonus: all
 
 clean:
 	make clean -C $(PRINTFDIR)
-	$(RM) $(SERVER_OBJ) $(CLIENT_OBJ)
+	$(RM) $(OBJS)
 
 fclean: clean
 	make fclean -C $(PRINTFDIR)
