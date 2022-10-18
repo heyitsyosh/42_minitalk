@@ -6,6 +6,7 @@ CLIENT = client
 DIR = ./minitalk_mandatory/
 BONUS_DIR = ./minitalk_bonus/
 PRINTFDIR = ./lib/printf/
+PRINTF = $(PRINTFDIR)libftprintf.a
 
 SERVER_SRC = $(DIR)server.c
 CLIENT_SRC = $(DIR)client.c
@@ -30,13 +31,16 @@ CFLAGS = -Wall -Wextra -Werror -I ./includes
 
 all: $(NAME)
 
-$(NAME): $(SERVER_OBJ) $(CLIENT_OBJ)
-	make -C $(PRINTFDIR)
-	$(CC) $(CFLAGS) $(SERVER_OBJ) -o $(SERVER) -L$(PRINTFDIR) -lftprintf
-	$(CC) $(CFLAGS) $(CLIENT_OBJ) -o $(CLIENT) -L$(PRINTFDIR) -lftprintf
+$(NAME): $(SERVER) $(CLIENT)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -o $@ -c $<
+$(SERVER): $(SERVER_OBJ) $(PRINTF)
+	$(CC) $(CFLAGS) $(SERVER_OBJ) -o $(SERVER) $(PRINTF)
+
+$(CLIENT): $(CLIENT_OBJ) $(PRINTF)
+	$(CC) $(CFLAGS) $(CLIENT_OBJ) -o $(CLIENT) $(PRINTF)
+
+$(PRINTF):
+	make -C $(PRINTFDIR)
 
 bonus: all
 
