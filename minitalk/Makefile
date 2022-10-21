@@ -31,12 +31,12 @@ CFLAGS = -Wall -Wextra -Werror -I ./includes
 
 all: $(NAME)
 
-$(NAME): $(SERVER) $(CLIENT)
+$(NAME): $(PRINTF) $(SERVER) $(CLIENT)
 
-$(SERVER): $(SERVER_OBJ) $(PRINTF)
+$(SERVER): $(SERVER_OBJ)
 	$(CC) $(CFLAGS) $(SERVER_OBJ) -o $(SERVER) $(PRINTF)
 
-$(CLIENT): $(CLIENT_OBJ) $(PRINTF)
+$(CLIENT): $(CLIENT_OBJ)
 	$(CC) $(CFLAGS) $(CLIENT_OBJ) -o $(CLIENT) $(PRINTF)
 
 $(PRINTF):
