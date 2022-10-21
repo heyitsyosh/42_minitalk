@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 22:16:21 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/01 13:48:34 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/22 06:22:46 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,7 @@ static void	check_pid(pid_t *pid, int argc, char **argv)
 	}
 	*pid = ft_atoi(argv[1]);
 	if (*pid < 100 || *pid > 99998)
-	{
-		ft_printf("Error: pid not in valid range\n");
 		exit (1);
-	}
 }
 
 static void	send_byte(pid_t pid, int character)
