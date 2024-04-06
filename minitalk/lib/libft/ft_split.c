@@ -6,10 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 23:29:05 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/22 22:39:32 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/06 22:51:57 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h> //malloc, free
 #include "../../includes/libft.h"
 
 static size_t	malloc_size(const char *s, char c)

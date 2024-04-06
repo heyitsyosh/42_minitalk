@@ -6,10 +6,13 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 22:16:21 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/22 06:22:46 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/06 23:20:03 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <sys/types.h> //pid_t
+#include <unistd.h> //usleep
+#include <stdlib.h> //exit
 #include "../includes/minitalk.h"
 
 static bool	str_is_num(char *str)

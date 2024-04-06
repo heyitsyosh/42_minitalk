@@ -6,10 +6,13 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 22:16:21 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/22 06:23:09 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/06 23:20:26 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <sys/types.h> //pid_t
+#include <unistd.h> //usleep, pause
+#include <stdlib.h> //exit
 #include "../includes/minitalk_bonus.h"
 
 static void	acknowledge(int signal)

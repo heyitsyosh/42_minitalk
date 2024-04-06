@@ -6,10 +6,13 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 22:14:08 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/02 21:03:36 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/06 23:20:47 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <sys/types.h>
+#include <unistd.h> //getpid, pause
+#include <stdlib.h> //exit
 #include "../includes/minitalk_bonus.h"
 
 static void	handler(int signal, siginfo_t *s_info, void *context)
