@@ -6,14 +6,14 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 10:30:10 by myoshika          #+#    #+#             */
-/*   Updated: 2024/04/04 01:02:17 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 02:41:49 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <limits.h> //INT_MAX
 #include <stdlib.h> //malloc, free
-#include "../../includes/libft.h"
-#include "../../includes/ft_printf.h"
+#include "libft.h"
+#include "ft_printf.h"
 
 static int	get_ull_len(unsigned long long ull, int base)
 {

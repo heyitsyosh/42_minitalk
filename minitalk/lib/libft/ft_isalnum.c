@@ -6,11 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 07:40:29 by myoshika          #+#    #+#             */
-/*   Updated: 2024/04/04 00:42:51 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 02:40:56 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "libft.h"
 
 int	ft_isalnum(int c)
 {
