@@ -6,10 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 03:58:51 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/22 22:39:24 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/04 00:44:46 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h> //malloc
 #include "../../includes/libft.h"
 
 char	*ft_strdup(const char *s1)

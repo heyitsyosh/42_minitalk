@@ -6,10 +6,13 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 10:30:10 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/01 07:37:36 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/04 01:02:17 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <limits.h> //INT_MAX
+#include <stdlib.h> //malloc, free
+#include "../../includes/libft.h"
 #include "../../includes/ft_printf.h"
 
 static int	get_ull_len(unsigned long long ull, int base)
@@ -96,6 +99,6 @@ int	put_signed(t_info *info, char *num)
 	}
 	else
 		printed = put_num(num, (int)ft_strlen(num), 0, info);
-	free (num);
+	free(num);
 	return (printed);
 }

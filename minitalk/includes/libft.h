@@ -6,17 +6,14 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 00:29:25 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/03 05:01:08 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/04 00:55:03 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stddef.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <limits.h>
+# include <stddef.h> //size_t, NULL
 
 typedef struct s_list
 {
@@ -75,4 +72,5 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 size_t	ft_strnlen(const char *s, size_t maxlen);
 int		ft_max(int a, int b);
 int		ft_min(int a, int b);
+
 #endif

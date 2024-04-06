@@ -1,16 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server_bonus.c                                     :+:      :+:    :+:   */
+/*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 22:14:08 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/02 21:03:36 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 00:01:42 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minitalk_bonus.h"
+#include <signal.h> //sigaction, kill, siginfo_t, SA_SIGINFO, SIGUSR1, SIGUSR2
+#include <sys/types.h>
+#include <unistd.h> //getpid, pause
+#include <stdlib.h> //exit
+#include "../includes/libft.h"
+#include "../includes/ft_printf.h"
 
 static void	handler(int signal, siginfo_t *s_info, void *context)
 {

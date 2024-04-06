@@ -6,10 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 23:28:58 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/22 22:39:38 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/04 00:44:19 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h> //write
 #include "../../includes/libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
