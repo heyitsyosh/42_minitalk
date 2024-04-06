@@ -6,13 +6,13 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 07:01:55 by myoshika          #+#    #+#             */
-/*   Updated: 2024/04/04 01:02:38 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 02:41:49 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <limits.h> //INT_MAX
-#include "../../includes/libft.h"
-#include "../../includes/ft_printf.h"
+#include "libft.h"
+#include "ft_printf.h"
 
 static int	basic_atoi(const char *str, size_t *i, int num)
 {

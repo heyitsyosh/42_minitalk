@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/17 03:58:51 by myoshika          #+#    #+#             */
-/*   Updated: 2024/04/04 00:44:46 by myoshika         ###   ########.fr       */
+/*   Created: 2022/05/28 23:20:32 by myoshika          #+#    #+#             */
+/*   Updated: 2024/04/07 02:40:56 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h> //malloc
-#include "../../includes/libft.h"
+#include "libft.h"
 
 char	*ft_strdup(const char *s1)
 {

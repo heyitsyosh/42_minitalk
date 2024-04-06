@@ -6,13 +6,13 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 00:37:03 by myoshika          #+#    #+#             */
-/*   Updated: 2024/04/04 01:02:23 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 02:41:49 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h> //write
-#include "../../includes/libft.h"
-#include "../../includes/ft_printf.h"
+#include "libft.h"
+#include "ft_printf.h"
 
 static int	put_space_padding(int call, int flags, int not_space, t_info *info)
 {
