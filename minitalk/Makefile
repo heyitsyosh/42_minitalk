@@ -8,11 +8,8 @@ OBJSDIR = objs/
 PRINTFDIR = lib/printf/
 PRINTF = $(PRINTFDIR)libftprintf.a
 
-SERVER_SRC = $(SRCSDIR)server.c
-CLIENT_SRC = $(SRCSDIR)client.c
-
-SERVER_OBJ = $(SERVER_SRC:$(SRCSDIR)%.c=$(OBJSDIR)%.o)
-CLIENT_OBJ = $(CLIENT_SRC:$(SRCSDIR)%.c=$(OBJSDIR)%.o)
+SERVER_OBJ = $(addprefix $(OBJSDIR), $(addsuffix .o, $(SERVER)))
+CLIENT_OBJ = $(addprefix $(OBJSDIR), $(addsuffix .o, $(CLIENT)))
 
 OBJS = $(SERVER_OBJ) $(CLIENT_OBJ)
 
@@ -42,7 +39,6 @@ $(PRINTF):
 
 clean:
 	make clean -C $(PRINTFDIR)
-	$(RM) $(OBJS)
 	$(RM) -r $(OBJSDIR)
 
 fclean: clean
