@@ -1,16 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client_bonus.c                                     :+:      :+:    :+:   */
+/*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 22:16:21 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/22 06:23:09 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 00:09:00 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minitalk_bonus.h"
+#include <signal.h> //signal, kill, SIGUSR1, SIGUSR2, SIG_ERR
+#include <sys/types.h> //pid_t
+#include <unistd.h> //usleep, pause
+#include <stdlib.h> //exit
+#include "../includes/libft.h"
+#include "../includes/ft_printf.h"
 
 static void	acknowledge(int signal)
 {
@@ -36,7 +41,7 @@ static void	check_pid(pid_t *pid, int argc, char **argv)
 {
 	if (argc != 3 || !str_is_num(argv[1]))
 	{
-		ft_printf("Error: invalid input\n");
+		ft_printf("Usage: ./client <server_pid> <message_to_send>");
 		exit(1);
 	}
 	*pid = ft_atoi(argv[1]);

@@ -9,25 +9,31 @@ SRCS_ = ft_printf\
 		flags
 
 SRCS = $(addsuffix .c, $(SRCS_))
-OBJS = $(SRCS:.c=.o)
+OBJS_DIR = objs/
+OBJS = $(addprefix $(OBJS_DIR), $(SRCS:.c=.o))
 
 CFLAGS = -Wall -Wextra -Werror
-INCLUDES = -I ../../includes/libft.h
+INCLUDES = -I ../../includes
 
 # **************************************************************************** #
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(OBJS_DIR):
+	mkdir -p $(OBJS_DIR)
+
+$(OBJS_DIR)%.o: %.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+$(NAME): $(OBJS_DIR) $(OBJS)
 	make -C $(LIBFTDIR)
 	cp ../libft/libft.a $(NAME)
 	ar rcs $(NAME) $(OBJS)
 
-bonus: all
-
 clean:
 	make clean -C $(LIBFTDIR)
 	${RM} $(OBJS)
+	rm -rf $(OBJS_DIR)
 
 fclean: clean
 	make fclean -C $(LIBFTDIR)
@@ -35,4 +41,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re

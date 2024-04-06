@@ -3,29 +3,21 @@ NAME = minitalk
 SERVER = server
 CLIENT = client
 
-DIR = ./minitalk_mandatory/
-BONUS_DIR = ./minitalk_bonus/
-PRINTFDIR = ./lib/printf/
+SRCSDIR = srcs/
+OBJSDIR = objs/
+PRINTFDIR = lib/printf/
 PRINTF = $(PRINTFDIR)libftprintf.a
 
-SERVER_SRC = $(DIR)server.c
-CLIENT_SRC = $(DIR)client.c
+SERVER_SRC = $(SRCSDIR)server.c
+CLIENT_SRC = $(SRCSDIR)client.c
 
-SERVER_OBJ = $(SERVER_SRC:.c=.o)
-CLIENT_OBJ = $(CLIENT_SRC:.c=.o)
-B_SERVER_OBJ = $(BONUS_DIR)server_bonus.o
-B_CLIENT_OBJ = $(BONUS_DIR)client_bonus.o
+SERVER_OBJ = $(SERVER_SRC:$(SRCSDIR)%.c=$(OBJSDIR)%.o)
+CLIENT_OBJ = $(CLIENT_SRC:$(SRCSDIR)%.c=$(OBJSDIR)%.o)
 
-OBJS = $(SERVER_OBJ) $(CLIENT_OBJ) $(B_CLIENT_OBJ) $(B_SERVER_OBJ)
+OBJS = $(SERVER_OBJ) $(CLIENT_OBJ)
 
-ifeq ($(MAKECMDGOALS),bonus)
-SERVER_SRC = $(BONUS_DIR)server_bonus.c
-CLIENT_SRC = $(BONUS_DIR)client_bonus.c
-SERVER_OBJ = $(SERVER_SRC:.c=.o)
-CLIENT_OBJ = $(CLIENT_SRC:.c=.o)
-endif
-
-CFLAGS = -Wall -Wextra -Werror -I ./includes
+CFLAGS = -Wall -Wextra -Werror
+INCLUDES = -I includes/
 
 #--------------------------------------------------------------------------#
 
@@ -33,20 +25,25 @@ all: $(NAME)
 
 $(NAME): $(PRINTF) $(SERVER) $(CLIENT)
 
-$(SERVER): $(SERVER_OBJ)
-	$(CC) $(CFLAGS) $(SERVER_OBJ) -o $(SERVER) $(PRINTF)
+$(OBJSDIR):
+	mkdir -p $(OBJSDIR)
 
-$(CLIENT): $(CLIENT_OBJ)
-	$(CC) $(CFLAGS) $(CLIENT_OBJ) -o $(CLIENT) $(PRINTF)
+$(SERVER): $(OBJSDIR) $(SERVER_OBJ)
+	$(CC) $(CFLAGS) $(INCLUDES) $(SERVER_OBJ) -o $(SERVER) $(PRINTF)
+
+$(CLIENT): $(OBJSDIR) $(CLIENT_OBJ)
+	$(CC) $(CFLAGS) $(INCLUDES) $(CLIENT_OBJ) -o $(CLIENT) $(PRINTF)
+
+$(OBJSDIR)%.o: $(SRCSDIR)%.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(PRINTF):
 	make -C $(PRINTFDIR)
 
-bonus: all
-
 clean:
 	make clean -C $(PRINTFDIR)
 	$(RM) $(OBJS)
+	$(RM) -r $(OBJSDIR)
 
 fclean: clean
 	make fclean -C $(PRINTFDIR)
@@ -54,4 +51,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
