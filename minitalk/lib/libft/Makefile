@@ -1,6 +1,6 @@
 NAME = libft.a
 
-SRCS_ = ft_isalpha\
+SRCS = ft_isalpha\
 		ft_isdigit\
 		ft_isalnum\
 		ft_isascii\
@@ -35,19 +35,10 @@ SRCS_ = ft_isalpha\
 		ft_putendl_fd\
 		ft_putnbr_fd\
 		ft_strnlen\
-		ft_lstnew\
-		ft_lstadd_front\
-		ft_lstsize\
-		ft_lstlast\
-		ft_lstadd_back\
-		ft_lstdelone\
-		ft_lstclear\
-		ft_lstiter\
-		ft_lstmap\
 		ft_strnlen\
 		ft_max\
 		ft_min
-LST_ = ft_lstnew\
+LST_SRCS = ft_lstnew\
 		ft_lstadd_front\
 		ft_lstsize\
 		ft_lstlast\
@@ -56,15 +47,13 @@ LST_ = ft_lstnew\
 		ft_lstclear\
 		ft_lstiter\
 		ft_lstmap
-SRCS = $(addsuffix .c, $(SRCS_))
-LST = $(addsuffix .c, $(LST_))
 
 OBJS_DIR = objs/
-OBJS = $(addprefix $(OBJS_DIR), $(SRCS:.c=.o))
-LST_OBJS = $(addprefix $(OBJS_DIR), $(LST:.c=.o))
+OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRCS)))
+LST_OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(LST_SRCS)))
 
 ifeq ($(MAKECMDGOALS),list)
-LST += $(LST_OBJS)
+OBJS += $(LST_OBJS)
 endif
 
 CFLAGS = -Wall -Wextra -Werror
@@ -85,7 +74,6 @@ $(NAME): $(OBJS)
 list: all
 	
 clean:
-	rm -f $(OBJS)
 	rm -rf $(OBJS_DIR)
 
 fclean: clean

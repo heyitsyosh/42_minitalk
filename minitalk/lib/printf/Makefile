@@ -2,15 +2,14 @@ NAME = libftprintf.a
 
 LIBFTDIR = ../libft
 
-SRCS_ = ft_printf\
+SRCS = ft_printf\
 		print_str_char\
 		num_to_arr\
 		print_num_arr\
 		flags
 
-SRCS = $(addsuffix .c, $(SRCS_))
 OBJS_DIR = objs/
-OBJS = $(addprefix $(OBJS_DIR), $(SRCS:.c=.o))
+OBJS = $(addprefix $(OBJS_DIR),  $(addsuffix .o, $(SRCS)))
 
 CFLAGS = -Wall -Wextra -Werror
 INCLUDES = -I ../../includes
@@ -32,7 +31,6 @@ $(NAME): $(OBJS_DIR) $(OBJS)
 
 clean:
 	make clean -C $(LIBFTDIR)
-	${RM} $(OBJS)
 	rm -rf $(OBJS_DIR)
 
 fclean: clean
