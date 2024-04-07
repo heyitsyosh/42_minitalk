@@ -2,21 +2,22 @@ NAME = libftprintf.a
 
 LIBFT_DIR = ../libft
 
-SRCS_ = ft_printf\
+SRCS = ft_printf\
 		print_str_char\
 		num_to_arr\
 		print_num_arr\
 		flags
-
-SRCS = $(addsuffix .c, $(SRCS_))
-OBJS = $(SRCS:.c=.o)
+OBJS = $(addsuffix .o, $(SRCS))
 
 CFLAGS = -Wall -Wextra -Werror
-INCLUDES = -I ../../includes/libft.h
+INCLUDES = -I ../../includes/
 
 # **************************************************************************** #
 
 all: $(NAME)
+
+%.o: %.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJS)
 	make -C $(LIBFT_DIR)
