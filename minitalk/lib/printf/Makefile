@@ -1,6 +1,6 @@
 NAME = libftprintf.a
 
-LIBFTDIR = ../libft
+LIBFT_DIR = ../libft
 
 SRCS_ = ft_printf\
 		print_str_char\
@@ -19,20 +19,20 @@ INCLUDES = -I ../../includes/libft.h
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	make -C $(LIBFTDIR)
+	make -C $(LIBFT_DIR)
 	cp ../libft/libft.a $(NAME)
 	ar rcs $(NAME) $(OBJS)
 
 bonus: all
 
 clean:
-	make clean -C $(LIBFTDIR)
-	${RM} $(OBJS)
+	make clean -C $(LIBFT_DIR)
+	$(RM) $(OBJS)
 
 fclean: clean
-	make fclean -C $(LIBFTDIR)
-	${RM} $(NAME)
+	make fclean -C $(LIBFT_DIR)
+	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all bonus clean fclean re

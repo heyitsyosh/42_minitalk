@@ -5,8 +5,8 @@ CLIENT = client
 
 DIR = ./minitalk_mandatory/
 BONUS_DIR = ./minitalk_bonus/
-PRINTFDIR = ./lib/printf/
-PRINTF = $(PRINTFDIR)libftprintf.a
+PRINTF_DIR = ./lib/printf/
+PRINTF = $(PRINTF_DIR)libftprintf.a
 
 SERVER_SRC = $(DIR)server.c
 CLIENT_SRC = $(DIR)client.c
@@ -40,18 +40,18 @@ $(CLIENT): $(CLIENT_OBJ)
 	$(CC) $(CFLAGS) $(CLIENT_OBJ) -o $(CLIENT) $(PRINTF)
 
 $(PRINTF):
-	make -C $(PRINTFDIR)
+	make -C $(PRINTF_DIR)
 
 bonus: all
 
 clean:
-	make clean -C $(PRINTFDIR)
+	make clean -C $(PRINTF_DIR)
 	$(RM) $(OBJS)
 
 fclean: clean
-	make fclean -C $(PRINTFDIR)
+	make fclean -C $(PRINTF_DIR)
 	$(RM) $(SERVER) $(CLIENT)
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all bonus clean fclean re
