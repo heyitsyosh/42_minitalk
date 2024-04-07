@@ -9,7 +9,7 @@
 ## Description:
 Client converts message into binary data, then sends data to server process using the siganls SIGUSER1, SIGUSER2.  
 Server signal handler reconstructs data and prints message.  
-(In bonus implementation, server sends ack signal to client after recieving full message.)
+In bonus implementation, server sends ack signal to client after recieving full message.
 
 ## Set-up:
 First, enter directory with `cd minitalk`.  
