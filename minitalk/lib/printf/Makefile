@@ -35,7 +35,7 @@ clean:
 
 fclean: clean
 	make fclean -C $(LIBFTDIR)
-	${RM} $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 

@@ -3,15 +3,13 @@ NAME = minitalk
 SERVER = server
 CLIENT = client
 
-SRCSDIR = srcs/
-OBJSDIR = objs/
-PRINTFDIR = lib/printf/
-PRINTF = $(PRINTFDIR)libftprintf.a
+SRCS_DIR = srcs/
+OBJS_DIR = objs/
+PRINTF_DIR = lib/printf/
+PRINTF = $(PRINTF_DIR)libftprintf.a
 
-SERVER_OBJ = $(addprefix $(OBJSDIR), $(addsuffix .o, $(SERVER)))
-CLIENT_OBJ = $(addprefix $(OBJSDIR), $(addsuffix .o, $(CLIENT)))
-
-OBJS = $(SERVER_OBJ) $(CLIENT_OBJ)
+SERVER_OBJ = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(SERVER)))
+CLIENT_OBJ = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(CLIENT)))
 
 CFLAGS = -Wall -Wextra -Werror
 INCLUDES = -I includes/
@@ -22,27 +20,27 @@ all: $(NAME)
 
 $(NAME): $(PRINTF) $(SERVER) $(CLIENT)
 
-$(OBJSDIR):
-	mkdir -p $(OBJSDIR)
+$(OBJS_DIR):
+	mkdir -p $(OBJS_DIR)
 
-$(SERVER): $(OBJSDIR) $(SERVER_OBJ)
-	$(CC) $(CFLAGS) $(INCLUDES) $(SERVER_OBJ) -o $(SERVER) $(PRINTF)
-
-$(CLIENT): $(OBJSDIR) $(CLIENT_OBJ)
-	$(CC) $(CFLAGS) $(INCLUDES) $(CLIENT_OBJ) -o $(CLIENT) $(PRINTF)
-
-$(OBJSDIR)%.o: $(SRCSDIR)%.c
+$(OBJS_DIR)%.o: $(SRCS_DIR)%.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(PRINTF):
-	make -C $(PRINTFDIR)
+	make -C $(PRINTF_DIR)
+
+$(SERVER): $(OBJS_DIR) $(SERVER_OBJ)
+	$(CC) $(CFLAGS) $(INCLUDES) $(SERVER_OBJ) -o $(SERVER) $(PRINTF)
+
+$(CLIENT): $(OBJS_DIR) $(CLIENT_OBJ)
+	$(CC) $(CFLAGS) $(INCLUDES) $(CLIENT_OBJ) -o $(CLIENT) $(PRINTF)
 
 clean:
-	make clean -C $(PRINTFDIR)
-	$(RM) -r $(OBJSDIR)
+	make clean -C $(PRINTF_DIR)
+	rm -rf $(OBJS_DIR)
 
 fclean: clean
-	make fclean -C $(PRINTFDIR)
+	make fclean -C $(PRINTF_DIR)
 	$(RM) $(SERVER) $(CLIENT)
 
 re: fclean all
