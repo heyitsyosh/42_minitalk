@@ -1,6 +1,7 @@
 NAME = libftprintf.a
 
-LIBFTDIR = ../libft
+LIBFT_DIR = ../libft/
+OBJS_DIR = objs/
 
 SRCS = ft_printf\
 		print_str_char\
@@ -8,7 +9,6 @@ SRCS = ft_printf\
 		print_num_arr\
 		flags
 
-OBJS_DIR = objs/
 OBJS = $(addprefix $(OBJS_DIR),  $(addsuffix .o, $(SRCS)))
 
 CFLAGS = -Wall -Wextra -Werror
@@ -25,16 +25,16 @@ $(OBJS_DIR)%.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJS_DIR) $(OBJS)
-	make -C $(LIBFTDIR)
+	make -C $(LIBFT_DIR)
 	cp ../libft/libft.a $(NAME)
 	ar rcs $(NAME) $(OBJS)
 
 clean:
-	make clean -C $(LIBFTDIR)
+	make clean -C $(LIBFT_DIR)
 	rm -rf $(OBJS_DIR)
 
 fclean: clean
-	make fclean -C $(LIBFTDIR)
+	make fclean -C $(LIBFT_DIR)
 	$(RM) $(NAME)
 
 re: fclean all
