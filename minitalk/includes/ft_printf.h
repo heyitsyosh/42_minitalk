@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:46:50 by myoshika          #+#    #+#             */
-/*   Updated: 2024/04/04 01:01:53 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 23:10:33 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,5 @@ int		no_conversion(const char *input, t_info *info);
 
 char	*ft_ulltoa(unsigned long long ull, int base, t_info *info);
 int		print_str(const char *input, size_t len);
+
 #endif
