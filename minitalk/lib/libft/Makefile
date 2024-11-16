@@ -1,5 +1,7 @@
 NAME = libft.a
 
+OBJS_DIR = objs
+
 SRCS = ft_isalpha\
 		ft_isdigit\
 		ft_isalnum\
@@ -37,8 +39,8 @@ SRCS = ft_isalpha\
 		ft_strnlen\
 		ft_strnlen\
 		ft_max\
-		ft_min
-LST_SRCS = ft_lstnew\
+		ft_min\
+		ft_lstnew\
 		ft_lstadd_front\
 		ft_lstsize\
 		ft_lstlast\
@@ -47,14 +49,7 @@ LST_SRCS = ft_lstnew\
 		ft_lstclear\
 		ft_lstiter\
 		ft_lstmap
-
-OBJS_DIR = objs
 OBJS = $(addprefix $(OBJS_DIR)/, $(addsuffix .o, $(SRCS)))
-LST_OBJS = $(addprefix $(OBJS_DIR)/, $(addsuffix .o, $(LST_SRCS)))
-
-ifeq ($(MAKECMDGOALS),list)
-OBJS += $(LST_OBJS)
-endif
 
 CFLAGS = -Wall -Wextra -Werror
 INCLUDES = -I ../../includes/

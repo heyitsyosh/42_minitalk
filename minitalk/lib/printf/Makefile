@@ -8,8 +8,7 @@ SRCS = ft_printf\
 		num_to_arr\
 		print_num_arr\
 		flags
-
-OBJS = $(addprefix $(OBJS_DIR)/,  $(addsuffix .o, $(SRCS)))
+OBJS = $(addprefix $(OBJS_DIR)/, $(addsuffix .o, $(SRCS)))
 
 CFLAGS = -Wall -Wextra -Werror
 INCLUDES = -I ../../includes
