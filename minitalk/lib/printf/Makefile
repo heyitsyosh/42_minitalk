@@ -1,7 +1,7 @@
 NAME = libftprintf.a
 
-LIBFT_DIR = ../libft/
-OBJS_DIR = objs/
+LIBFT_DIR = ../libft
+OBJS_DIR = objs
 
 SRCS = ft_printf\
 		print_str_char\
@@ -9,7 +9,7 @@ SRCS = ft_printf\
 		print_num_arr\
 		flags
 
-OBJS = $(addprefix $(OBJS_DIR),  $(addsuffix .o, $(SRCS)))
+OBJS = $(addprefix $(OBJS_DIR)/,  $(addsuffix .o, $(SRCS)))
 
 CFLAGS = -Wall -Wextra -Werror
 INCLUDES = -I ../../includes
@@ -21,7 +21,7 @@ all: $(NAME)
 $(OBJS_DIR):
 	mkdir -p $(OBJS_DIR)
 
-$(OBJS_DIR)%.o: %.c
+$(OBJS_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJS_DIR) $(OBJS)
