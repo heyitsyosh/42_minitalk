@@ -48,9 +48,9 @@ LST_SRCS = ft_lstnew\
 		ft_lstiter\
 		ft_lstmap
 
-OBJS_DIR = objs/
-OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRCS)))
-LST_OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(LST_SRCS)))
+OBJS_DIR = objs
+OBJS = $(addprefix $(OBJS_DIR)/, $(addsuffix .o, $(SRCS)))
+LST_OBJS = $(addprefix $(OBJS_DIR)/, $(addsuffix .o, $(LST_SRCS)))
 
 ifeq ($(MAKECMDGOALS),list)
 OBJS += $(LST_OBJS)
@@ -66,14 +66,12 @@ all: $(NAME)
 $(OBJS_DIR):
 	mkdir -p $(OBJS_DIR)
 
-$(OBJS_DIR)%.o: %.c | $(OBJS_DIR)
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+$(OBJS_DIR)/%.o: %.c | $(OBJS_DIR)
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-list: all
-	
 clean:
 	rm -rf $(OBJS_DIR)
 
@@ -82,4 +80,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all list clean fclean re
+.PHONY: all clean fclean re

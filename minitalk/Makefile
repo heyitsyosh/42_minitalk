@@ -3,13 +3,13 @@ NAME = minitalk
 SERVER = server
 CLIENT = client
 
-SRCS_DIR = srcs/
-OBJS_DIR = objs/
-PRINTF_DIR = lib/printf/
-PRINTF = $(PRINTF_DIR)libftprintf.a
+SRCS_DIR = srcs
+OBJS_DIR = objs
+PRINTF_DIR = lib/printf
+PRINTF = $(PRINTF_DIR)/libftprintf.a
 
-SERVER_OBJ = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(SERVER)))
-CLIENT_OBJ = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(CLIENT)))
+SERVER_OBJ = $(addprefix $(OBJS_DIR)/, $(addsuffix .o, $(SERVER)))
+CLIENT_OBJ = $(addprefix $(OBJS_DIR)/, $(addsuffix .o, $(CLIENT)))
 
 CFLAGS = -Wall -Wextra -Werror
 INCLUDES = -I includes/
@@ -23,7 +23,7 @@ $(NAME): $(PRINTF) $(SERVER) $(CLIENT)
 $(OBJS_DIR):
 	mkdir -p $(OBJS_DIR)
 
-$(OBJS_DIR)%.o: $(SRCS_DIR)%.c
+$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(PRINTF):
